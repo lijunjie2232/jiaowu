@@ -6,9 +6,9 @@
 // @version     1.0
 // @author      lijunjie2232
 // @description 2022/9/1 下午10:04:14
-// @run-at      document-body
 // @require http://code.jquery.com/jquery-1.11.0.min.js
 // ==/UserScript==
+// @run-at      document-body
 
 (function() {
 	$("#havelocation")
@@ -23,10 +23,12 @@
 	console.log($("#havelocation")
 		.html());
 	if (document.querySelector(".co4") == null) {
-		go_subfx();
+		go_sub();
+		//go_subfx
 		document.querySelector(".co3")
 			.click();
-		savefx();
+		save();
+		//savefx
 	} else {
 		alert("submited");
 	}
