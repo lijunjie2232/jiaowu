@@ -23,12 +23,12 @@
 	console.log($("#havelocation")
 		.html());
 	if (document.querySelector(".co4") == null) {
-		go_sub();
-		//go_subfx
+		//go_sub();
+		go_subfx();
 		document.querySelector(".co3")
 			.click();
-		save();
-		//savefx
+		//save();
+		savefx();
 	} else {
 		alert("submited");
 	}
