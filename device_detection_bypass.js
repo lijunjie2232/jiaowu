@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      lijunjie2232
 // @description 2022/9/1 下午10:04:14
 // @require http://code.jquery.com/jquery-1.11.0.min.js
