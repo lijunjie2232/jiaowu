@@ -1,7 +1,7 @@
 # -- coding: UTF-8
 __author__ = 'ljj'
 
-from asyncio.windows_events import NULL
+# from asyncio.windows_events import NULL
 import json
 from time import sleep
 from selenium import webdriver
@@ -15,8 +15,11 @@ class fuckYQTB(object):
     def __init__(self, url):
         self.driver_path = r".\venv\Scripts\chromedriver.exe"
         self.options = webdriver.ChromeOptions()
-        self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        self.chrome_driver = webdriver.Chrome(executable_path=self.driver_path, options=self.options)
+        self.options.add_experimental_option(
+            'excludeSwitches', ['enable-logging'])
+        self.options.add_argument('--headless')  # 浏览器不提供可视化页面
+        self.chrome_driver = webdriver.Chrome(
+            executable_path=self.driver_path, options=self.options)
         self.url = url
 
     def setUA(self, ua):
@@ -57,10 +60,12 @@ if __name__ == '__main__':
         if not os.path.exists("./config/config.json"):
             if os.path.exists("./config/config_tmpl.json"):
                 print('generating a new config.json file')
-                shutil.copy("./config/config_tmpl.json", "./config/config.json")
+                shutil.copy("./config/config_tmpl.json",
+                            "./config/config.json")
             else:
-                raise Exception("Could not find config.json file in folder config")
-        f = open("./config/config.json","r",encoding="utf-8")
+                raise Exception(
+                    "Could not find config.json file in folder config")
+        f = open("./config/config.json", "r", encoding="utf-8")
         config = json.load(f)
         f.close()
 
@@ -69,7 +74,6 @@ if __name__ == '__main__':
         print("please check config.json ...")
         exit()
 
-    
     okbrowser = fuckYQTB('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
 
     okbrowser.setUA('superapp; app/Android')
@@ -107,13 +111,13 @@ if __name__ == '__main__':
         print("Login failed")
         print(e)
         exit()
-    
+
     try:
         if config['fx']:
             bh_p = "fx"
         else:
             bh_p = ""
-        
+
         if config["force"]:
             force = 'submit();'
         else:
@@ -125,8 +129,8 @@ if __name__ == '__main__':
     except Exception as e:
         print(e)
         print("please check config.json ...")
-    
-    set_location = """$("#havelocation").html("%s");"""%(loct)
+
+    set_location = """$("#havelocation").html("%s");""" % (loct)
     okbrowser.fuckTb(set_location)
 
     js = """
@@ -141,9 +145,9 @@ if __name__ == '__main__':
     } else {
         %s
     }
-    """%(bh_p, bh_p, force)
+    """ % (bh_p, bh_p, force)
 
-    print(js)
+    # print(js)
 
     okbrowser.fuckTb(js)
 
