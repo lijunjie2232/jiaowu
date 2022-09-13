@@ -13,7 +13,7 @@ from utils.bs64coder import strDecoder, strEncoder
 class fuckYQTB(object):
    # 初始化
     def __init__(self, url):
-        self.driver_path = r".\venv\Scripts\chromedriver.exe"
+        self.driver_path = r"./driver/chromedriver"
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option(
             'excludeSwitches', ['enable-logging'])
