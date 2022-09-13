@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        去他妈的不支持定位 离校版
+// @name        去他妈的不支持定位 返校版
 // @namespace   Violentmonkey Scripts
 // @match       https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp
 // @grant       none
@@ -23,10 +23,10 @@
 	console.log($("#havelocation")
 		.html());
 	if (document.querySelector(".co4") == null) {
-		go_sub();
+		go_subfx();
 		document.querySelector(".co3")
 			.click();
-		save();
+		savefx();
 	} else {
 		alert("submited");
 	}
